@@ -33,4 +33,9 @@ Route::get('/experiencesData', [ResumeController::class, 'experiencesData']);
 Route::get('/educationData', [ResumeController::class, 'educationData']);
 Route::get('/skillsData', [ResumeController::class, 'skillsData']);
 Route::get('/languageData', [ResumeController::class, 'languageData']);
-Route::post('/contactRequest', [ContactController::class, 'contactRequest']);
+Route::post('/contactRequest', [ContactController::class, 'contactRequest'])->name('contact-from');
+
+
+Route::delete('/contact/{id}', [ContactController::class, 'deleteContactData'])->name('contact.delete');
+Route::get('/contact/{id}',[ContactController::class, 'getContactOneData'])->name('contact.get-one-data');
+Route::put('/contact',[ContactController::class, 'putContactDataUpdate'])->name('contact.put-update-data');

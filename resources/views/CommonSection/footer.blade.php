@@ -6,6 +6,8 @@
 
 <script src="{{asset('assets/js/axios.min.js')}}"></script>
 <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+
+@yield('script')
 </body>
 
 </html>
