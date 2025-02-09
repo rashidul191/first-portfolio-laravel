@@ -47,13 +47,13 @@ class ContactController extends Controller
     }
 
 
-    public function deleteContactData(Request $request)
+    public function deleteContactData($id)
     {
         // return DB::table('contacts')->get();
 
         // dd($request->id);
 
-        DB::table('contacts')->where('id', $request->id)->delete();
+        DB::table('contacts')->where('id', $id)->delete();
 
         return redirect()->back()->with('success', 'Delete Successfully');
     }
@@ -76,12 +76,75 @@ class ContactController extends Controller
         // dd($request);
 
         DB::table('contacts')->where('id', $request->id)->update([
-            'fullName'=> $request->fullName,
-            'email'=> $request->email,
-            'phone'=> $request->phone,
-            'message'=> $request->message,
+            'fullName' => $request->fullName,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'message' => $request->message,
         ]);
 
         return redirect()->route('contact')->with('update', 'successfully update data');
+    }
+
+    // Resources
+    // View Page and Get All Data from Table
+    public function index()
+    {
+
+        $usersDataFromContactTable = DB::table('contacts')->orderBy('id', "desc")->get();
+
+        return view('ContactResources', compact('usersDataFromContactTable'));
+    }
+
+
+    // Post Data To Table
+    public function store(Request $request)
+    {
+
+        // dd($request);
+
+        if ($request) {
+
+            $fullName = $request->fullName;
+            $email = $request->email;
+            $phone = $request->phone;
+            $message = $request->message;
+
+            $result = DB::table('contacts')->insert([
+                'fullName' => $fullName,
+                'email' => $email,
+                'phone' => $phone,
+                'message' => $message,
+            ]);
+
+
+            if ($result == 1) {
+                return redirect()->back()->with('success', 'Data Submit Successfully');
+            } else {
+                return redirect()->back()->with('error', 'some think is wrong try again');
+            }
+        }
+        return;
+    }
+
+    // Get One Id Data From Table
+
+    public function show($id){
+        if($id){
+            $oneUserData = DB::table('contacts')->where('id', $id)->first();
+
+            // dd($oneUserData);
+            return view('ContactResourcesShow', compact('oneUserData'));
+        }
+    }
+
+    // Delete Data Form Table
+    public function destroy($id)
+    {
+        // dd($request->all());
+        if ($id) {
+            DB::table('contacts')->where('id', $id)->delete();
+
+            return redirect()->back()->with('success', "ID: $id is Delete Successfully");
+        }
     }
 }

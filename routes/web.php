@@ -39,3 +39,9 @@ Route::post('/contactRequest', [ContactController::class, 'contactRequest'])->na
 Route::delete('/contact/{id}', [ContactController::class, 'deleteContactData'])->name('contact.delete');
 Route::get('/contact/{id}',[ContactController::class, 'getContactOneData'])->name('contact.get-one-data');
 Route::put('/contact',[ContactController::class, 'putContactDataUpdate'])->name('contact.put-update-data');
+
+
+
+Route::resource('contact-res', ContactController::class);
+
+
