@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ResumeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,11 +39,18 @@ Route::post('/contactRequest', [ContactController::class, 'contactRequest'])->na
 
 
 Route::delete('/contact/{id}', [ContactController::class, 'deleteContactData'])->name('contact.delete');
-Route::get('/contact/{id}',[ContactController::class, 'getContactOneData'])->name('contact.get-one-data');
-Route::put('/contact',[ContactController::class, 'putContactDataUpdate'])->name('contact.put-update-data');
+Route::get('/contact/{id}', [ContactController::class, 'getContactOneData'])->name('contact.get-one-data');
+Route::put('/contact', [ContactController::class, 'putContactDataUpdate'])->name('contact.put-update-data');
 
 
 
 Route::resource('contact-res', ContactController::class);
 
+// Route::resource('user', UserController::class);
+Route::put('/userRegistration', [UserController::class, 'userRegistration'])->name('userRegistration');
+Route::get('/userLogin', [UserController::class, 'userLoginPage'])->name('userLogin');
+Route::post('/userLoginCheck', [UserController::class, 'userLoginCheck'])->name('userLoginCheck');
 
+
+
+Route::get('/admin', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');

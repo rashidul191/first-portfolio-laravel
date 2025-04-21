@@ -5,6 +5,4 @@
 
 @yield('page-content')
 
-@include(
-    'CommonSection.footer'
-)
+@include( 'CommonSection.footer')
