@@ -9,12 +9,12 @@
 
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                <input type="email" class="form-control" name="email" id="exampleFormControlInput1" placeholder="name@example.com">
+                <input type="email" class="form-control" name="email" id="exampleFormControlInput1" placeholder="name@example.com" required>
             </div>
             <div class="mb-3">
                 <label for="inputPassword" class="form-label">Password</label>
                 <div class="mb-3">
-                    <input type="password" name="password" class="form-control" id="inputPassword" placeholder="password">
+                    <input type="password" name="password" class="form-control" id="inputPassword" placeholder="password" required>
                 </div>
             </div>
             <input class="btn btn-success" type="submit" value="Login">

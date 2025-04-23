@@ -21,6 +21,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('contact')}}">Contact Us</a>
                     </li>
+                    <li class="nav-item btn btn-success">
+                        <a class="nav-link " href="{{route('userLogin')}}">Login</a>
+                    </li>
                 </ul>
             </div>
         </div>

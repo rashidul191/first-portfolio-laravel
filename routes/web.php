@@ -53,4 +53,4 @@ Route::post('/userLoginCheck', [UserController::class, 'userLoginCheck'])->name(
 
 
 
-Route::get('/admin', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');
+// Route::get('/admin', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');
