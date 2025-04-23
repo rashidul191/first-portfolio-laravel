@@ -52,5 +52,5 @@ Route::get('/userLogin', [UserController::class, 'userLoginPage'])->name('userLo
 Route::post('/userLoginCheck', [UserController::class, 'userLoginCheck'])->name('userLoginCheck');
 
 
-
-// Route::get('/admin', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');
+// Project
+Route::resource('projects', ProjectController::class);

@@ -13,7 +13,10 @@
                         <a class="nav-link active" href="{{route('home')}}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('projects')}}">Projects</a>
+                        <a class="nav-link" href="{{route('projects.index')}}">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('projects.create')}}">P-Create</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('resume')}}">Resume</a>
